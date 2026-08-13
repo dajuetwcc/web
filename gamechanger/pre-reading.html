@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>破局工作坊｜課前資料</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #1A1A2E;
+    --paper:   #F7F4EE;
+    --amber:   #C17F4A;
+    --amber-light: #F2E4D4;
+    --mist:    #6B8F8A;
+    --mist-light: #E4EEEC;
+    --light:   #EDE9E0;
+    --warm:    #E8E0D0;
+    --serif:   'Noto Serif TC', Georgia, serif;
+    --sans:    system-ui, -apple-system, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    padding: 88px 24px 72px;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 32px;
+  }
+
+  .hero-quote {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(20px, 3.5vw, 28px);
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(26,26,46,0.12);
+  }
+
+  .hero-quote em {
+    font-style: normal;
+    color: var(--amber);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7;
+    margin-top: 24px;
+  }
+
+  .content {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+
+  .section {
+    padding: 60px 0 0;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+
+  .section h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(19px, 2.8vw, 24px);
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .section p {
+    color: #2e2e42;
+    margin-bottom: 18px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  .section-rule {
+    width: 36px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.5;
+    margin: 52px 0 0;
+  }
+
+  /* Axis cards */
+  .axis-pair {
+    display: grid;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .axis-card {
+    background: var(--light);
+    border-left: 3px solid var(--amber);
+    padding: 22px 26px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .axis-card.alt { border-left-color: var(--mist); }
+
+  .axis-card strong {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .axis-card p {
+    font-size: 15px;
+    color: #3a3a52;
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  /* Def pair */
+  .def-pair {
+    display: grid;
+    gap: 14px;
+    margin: 28px 0 0;
+  }
+
+  @media (min-width: 560px) {
+    .def-pair { grid-template-columns: 1fr 1fr; }
+  }
+
+  .def-block {
+    padding: 22px 24px;
+    border-radius: 8px;
+    background: var(--light);
+  }
+
+  .def-block .term {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .def-block p {
+    font-size: 14px;
+    margin: 0;
+    color: #3a3a52;
+    line-height: 1.7;
+  }
+
+  /* Factory line */
+  .factory-line {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    padding: 20px 0;
+    margin: 20px 0 24px;
+    border-top: 1px solid rgba(26,26,46,0.08);
+    border-bottom: 1px solid rgba(26,26,46,0.08);
+  }
+
+  .factory-line em {
+    font-style: normal;
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  /* Why block */
+  .why-block {
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    padding: 28px 32px;
+    border-radius: 0 8px 8px 0;
+    margin: 4px 0 0;
+  }
+
+  .why-block .q {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  .why-block p {
+    font-size: 15px;
+    color: #3a2e22;
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .why-block p:last-child { margin-bottom: 0; }
+
+  /* Layer — only 場景我 */
+  .layer {
+    margin-bottom: 16px;
+    padding: 26px 30px;
+    border-radius: 8px;
+  }
+
+  .layer-1 { background: #EEF5F4; border-top: 3px solid var(--mist); }
+
+  .layer-depth {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,26,46,0.38);
+    margin-bottom: 6px;
+  }
+
+  .layer h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .layer .layer-sub {
+    font-size: 12px;
+    color: var(--mist);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+
+  .layer p {
+    font-size: 15px;
+    color: #2a2a3e;
+    margin-bottom: 10px;
+    line-height: 1.75;
+  }
+
+  .layer p:last-child { margin-bottom: 0; }
+
+  /* Deeper note */
+  .deeper-note {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    padding: 16px 20px;
+    background: var(--warm);
+    border-radius: 6px;
+    margin-top: 4px;
+    line-height: 1.7;
+  }
+
+  /* Focus trio */
+  .focus-trio {
+    display: grid;
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .focus-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    background: var(--light);
+    border-radius: 6px;
+  }
+
+  .focus-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: white;
+    font-family: var(--serif);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .focus-icon.mist { background: var(--mist); }
+
+  .focus-item strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .focus-item span {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  /* Track pair */
+  .track-pair {
+    display: grid;
+    gap: 14px;
+    margin: 28px 0 24px;
+  }
+
+  @media (min-width: 560px) {
+    .track-pair { grid-template-columns: 1fr 1fr; }
+  }
+
+  .track-block {
+    padding: 24px 26px;
+    border-radius: 8px;
+    background: var(--light);
+  }
+
+  .track-block.emotion { background: var(--mist-light); }
+
+  .track-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+
+  .track-block.emotion .track-label { color: var(--mist); }
+
+  .track-block h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .track-block p {
+    font-size: 14px;
+    color: #3a3a52;
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  /* Takeaway list */
+  .takeaway-list {
+    list-style: none;
+    margin: 16px 0 0;
+  }
+
+  .takeaway-list li {
+    padding: 11px 0 11px 22px;
+    position: relative;
+    font-size: 15px;
+    color: #2e2e42;
+    border-bottom: 1px solid rgba(26,26,46,0.07);
+    line-height: 1.65;
+  }
+
+  .takeaway-list li:last-child { border-bottom: none; }
+
+  .takeaway-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+  }
+
+  /* Question section */
+  .question-section {
+    margin-top: 60px;
+    padding: 48px 40px;
+    background: var(--amber-light);
+    border-radius: 12px;
+    border: 1px solid rgba(193,127,74,0.2);
+    text-align: center;
+  }
+
+  .question-section .qs-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 28px;
+  }
+
+  .question-block {
+    font-family: var(--serif);
+    font-size: clamp(16px, 2.4vw, 20px);
+    line-height: 1.65;
+    color: var(--ink);
+    font-weight: 400;
+    max-width: 460px;
+    margin: 0 auto 28px;
+  }
+
+  .question-note {
+    font-size: 14px;
+    color: #6a5040;
+    max-width: 400px;
+    margin: 0 auto 16px;
+    line-height: 1.75;
+  }
+
+  .question-note.closing {
+    margin-top: 20px;
+    font-style: italic;
+    color: #7a6050;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 13px;
+    color: rgba(26,26,46,0.35);
+    border-top: 1px solid rgba(26,26,46,0.09);
+    max-width: 660px;
+    margin: 0 auto;
+    letter-spacing: 0.05em;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .section {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.55s ease forwards;
+    }
+    .section:nth-child(1) { animation-delay: 0.05s; }
+    .section:nth-child(2) { animation-delay: 0.15s; }
+    .section:nth-child(3) { animation-delay: 0.25s; }
+    .section:nth-child(4) { animation-delay: 0.35s; }
+    .section:nth-child(5) { animation-delay: 0.45s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: none; }
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-eyebrow">大覺 Dajue · 破局者工作坊 · 課前說明</p>
+  <p class="hero-quote">
+    破局者，不是用力突破現實，<br>
+    而是重新設定自己<em>進入</em>現實的方式。
+  </p>
+  <p class="hero-desc">在工作坊開始之前，我們為你準備了這份說明，<br>讓你在工作坊中更能破而後立。</p>
+</div>
+
+<div class="content">
+
+  <!-- 一 -->
+  <div class="section">
+    <p class="section-label">一</p>
+    <h2>關於大覺</h2>
+    <p>大覺相信：真正的改變，始於覺察，終於行動。我們做的事，是協助人看見那些自動運行、把自己困住的模式，然後找到重新選擇的能力。</p>
+    <p>在大覺，這件事沿著兩條軸線進行：</p>
+
+    <div class="axis-pair">
+      <div class="axis-card alt">
+        <strong>身心整合</strong>
+        <p>改變不只是腦袋裡的事。情緒、身體感受、行為習慣，都是一個人整體的一部分。破局工作坊除了認知層面的重構，也包含情緒工作——讓身與心都真正鬆動。</p>
+      </div>
+      <div class="axis-card">
+        <strong>知行合一</strong>
+        <p>覺察是起點，不是終點。大覺的設計裡有大量體驗式練習，讓你從感受中真正被觸動，最終讓新的選擇落地為具體行動。</p>
+      </div>
+    </div>
+    <div class="section-rule"></div>
+  </div>
+
+  <!-- 二 -->
+  <div class="section">
+    <p class="section-label">二</p>
+    <h2>什麼是「敘事」，它跟「認知」有什麼不同</h2>
+    <p>在工作坊裡，你會一直聽到「敘事」這個詞。在我們開始之前，先說清楚它是什麼。</p>
+
+    <div class="def-pair">
+      <div class="def-block">
+        <p class="term">認知</p>
+        <p>大腦底層的運算過程——決定了你如何解讀一件事、如何評估它的意義、如何做出反應。這個過程很快、很自動，大多數時候你感覺不到它在發生。</p>
+      </div>
+      <div class="def-block">
+        <p class="term">敘事</p>
+        <p>認知運算之後的產物——大腦把零散的事實串起來，編成一個有因果、有主角、有情緒的故事。「他今天沒回我訊息，因為他不在乎我」是一個敘事。「我又搞砸了，我就是這樣的人」也是。</p>
+      </div>
+    </div>
+
+    <div class="factory-line">
+      認知是<em>工廠</em>，敘事是認知工廠<em>產出的產品</em>
+    </div>
+
+    <div class="why-block">
+      <p class="q">那為什麼我們選擇從「敘事」下手？</p>
+      <p>因為認知太抽象、太難直接觸碰。敘事是具體的——它是你對自己說的那句話、是你在腦子裡複述的那個故事、是你用來理解這件事的那個框架。敘事可以被「聽見」、被「指出來」、被「替換」。</p>
+      <p>而且，敘事一旦改變，整個計算系統就跟著改變——你的感受、你的反應、你的選擇、你的行動，都會跟著不一樣。這不是雞湯，這是人類心智的運作方式。</p>
+    </div>
+    <div class="section-rule"></div>
+  </div>
+
+  <!-- 三 -->
+  <div class="section">
+    <p class="section-label">三</p>
+    <h2>敘事從哪裡開始</h2>
+    <p>每次進入一個情境，你的大腦都會自動載入一組設定——決定你用什麼角色、帶著什麼目標、預設了什麼限制進入這個場景。這個設定，就是敘事最直接可觸碰的入口，我們把它叫做「場景我」。</p>
+
+    <div class="layer layer-1">
+      <p class="layer-depth">最直接可操作的入口</p>
+      <h3>場景我</h3>
+      <p class="layer-sub">你的進場設定</p>
+      <p>很多時候，這個設定是不自覺的。你可能沒有意識到自己在那個場景裡扮演的是「委屈的人」、「需要證明自己的人」、或「不得不妥協的人」——但你的一切反應，其實都是從那個角色出發的。</p>
+      <p>當你看見這個設定，你才有機會問：我可以不可以用一個不同的方式走進去？</p>
+    </div>
+
+    <p class="deeper-note">在敘事的更深處，還有其他層次——「反應我」和「內核我」。那是我們後續旅程的材料，這次工作坊先從最直接可操作的地方開始。</p>
+
+    <div class="section-rule"></div>
+  </div>
+
+  <!-- 四 -->
+  <div class="section">
+    <p class="section-label">四</p>
+    <h2>工作坊工作重點：場景我的敘事重構 ＋ 情緒轉化</h2>
+    <p>這兩天的工作坊，沿著兩條相互支撐的軌道進行。</p>
+
+    <div class="track-pair">
+      <div class="track-block">
+        <p class="track-label">軌道一</p>
+        <h3>場景我的敘事重構</h3>
+        <p>幫你看見在那個卡住的情境裡，原來的進場設定是什麼——角色、目標、對限制的預設——然後一起探索一個新的設定，讓你能用不同的方式走進同一個現實。</p>
+      </div>
+      <div class="track-block emotion">
+        <p class="track-label">軌道二</p>
+        <h3>情緒轉化</h3>
+        <p>卡住的地方，往往有一個你還沒有真正靠近的情緒。工作坊裡有情緒識別的練習，不是要你釋放或壓抑情緒，而是讓情緒告訴你——在那個困住的地方，你真正渴望的是什麼。</p>
+      </div>
+    </div>
+
+    <p>場景我的重構，需要情緒的清晰作為基礎；而情緒的轉化，也需要一個新的進場設定來承載。兩條軌道不是分開的，它們共同服務於同一件事：讓你在那個反覆出現的卡點，找到一個真正屬於你的出口。</p>
+
+    <p>場景我有三個關鍵要素：</p>
+
+    <div class="focus-trio">
+      <div class="focus-item">
+        <div class="focus-icon">角</div>
+        <div>
+          <strong>角色</strong>
+          <span>在那個情境裡，你扮演的是什麼角色？</span>
+        </div>
+      </div>
+      <div class="focus-item">
+        <div class="focus-icon">目</div>
+        <div>
+          <strong>目標</strong>
+          <span>這個角色想要什麼？裡面可能有你沒意識到的隱藏目標，不一定跟你真正期望的結果一致。</span>
+        </div>
+      </div>
+      <div class="focus-item">
+        <div class="focus-icon">限</div>
+        <div>
+          <strong>限制</strong>
+          <span>你預設了什麼是「做不到」的、「不可能」的、「不得不這樣」的？</span>
+        </div>
+      </div>
+    </div>
+
+    <p>工作坊結束的時候，你會帶走：</p>
+    <ul class="takeaway-list">
+      <li>對自己在那個卡住情境裡的進場設定，有清楚的覺察</li>
+      <li>一個你真正願意嘗試的新設定（新角色、新目標、對限制的新看法）</li>
+      <li>一個具體的、你明天就可以試試看的行動</li>
+    </ul>
+    <div class="section-rule"></div>
+  </div>
+
+  <!-- 五 -->
+  <div class="section">
+    <div class="question-section">
+      <p class="qs-label">帶著這個問題進來</p>
+      <div class="question-block">
+        你現在生活或工作裡，有一個讓你感覺反覆卡住的情境。那個情境是什麼？每次發生的時候，你通常是什麼反應？
+      </div>
+      <p class="question-note">
+        你不一定現在就要找到答案。你可以帶著這個問題想一陣子——或許在某個安靜的時刻，它會自己浮現出來。
+      </p>
+      <p class="question-note closing">
+        你帶進工作坊的材料，就是你生命裡的那個真實情境。<br>我們會一起探索、體驗，一起破而後立，打開生命更多的面向與可能性。
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  大覺 Dajue · 破局工作坊
+</div>
+
+</body>
+</html>
