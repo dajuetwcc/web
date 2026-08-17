@@ -914,6 +914,105 @@ body.redesign-v2::before{
   .redesign-v2 .hero h1{font-size:clamp(1.55rem,7.4vw,2.05rem);}
 }
 </style>
+
+<style id="reading-and-price-fix-v4">
+/* Price layout refinement for desktop: keep the same design, improve placement. */
+@media (min-width:761px){
+  .redesign-v2 .price-wrap .price{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    gap:42px;
+    width:fit-content;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .redesign-v2 .price-wrap .price > div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .redesign-v2 .price-wrap .price .old{
+    display:block;
+    align-self:flex-start;
+    margin-top:10px;
+    white-space:nowrap;
+    line-height:1.15;
+  }
+}
+
+/* Reading refinements for both desktop and mobile without changing content or style. */
+.redesign-v2 .sec-title,
+.redesign-v2 .subtitle,
+.redesign-v2 .tagp,
+.redesign-v2 .fact .k,
+.redesign-v2 .fact .v,
+.redesign-v2 .price .old,
+.redesign-v2 .price-wrap .sub,
+.redesign-v2 .tst__quote,
+.redesign-v2 .tst__body,
+.redesign-v2 .aud-item,
+.redesign-v2 .struct-item,
+.redesign-v2 .quizq__text,
+.redesign-v2 .poem,
+.redesign-v2 p{
+  text-wrap:pretty;
+  line-break:strict;
+  word-break:normal;
+  overflow-wrap:normal;
+}
+.redesign-v2 .price .old,
+.redesign-v2 .tagp,
+.redesign-v2 .fact .k,
+.redesign-v2 .fact .v,
+.redesign-v2 .subtitle,
+.redesign-v2 .keep-together{
+  word-break:keep-all;
+}
+@media (max-width:760px){
+  .redesign-v2 .price-wrap .tagp{line-height:1.75;}
+  .redesign-v2 .fact .v,
+  .redesign-v2 .fact .k,
+  .redesign-v2 .price-wrap .sub,
+  .redesign-v2 .subtitle,
+  .redesign-v2 .sec-title{
+    text-wrap:pretty;
+    line-break:strict;
+  }
+}
+</style>
+
+
+<style id="price-layout-fix-v5">
+/* Ensure desktop price layout stacks the original price above the early-bird price. */
+@media (min-width:761px){
+  .redesign-v2 .price-wrap .price{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:10px !important;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .redesign-v2 .price-wrap .price > div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    order:2;
+  }
+  .redesign-v2 .price-wrap .price .old{
+    display:block !important;
+    order:1;
+    margin:0 0 6px 0 !important;
+    align-self:center !important;
+    white-space:nowrap;
+    line-height:1.15;
+  }
+}
+</style>
+
 </head>
 <body class="redesign-v2">
 <!-- ================= HERO ================= -->
@@ -1183,7 +1282,7 @@ body.redesign-v2::before{
 <div class="price-wrap reveal">
 <div class="price">
 <div>
-<span class="tagp">8/8 前報名優惠價</span>
+<span class="tagp">2026/12/31 前報名｜早鳥優惠價</span>
 <span class="new">NT$36,000</span>
 </div>
 <span class="old">原價 NT$40,000</span>
@@ -1192,8 +1291,8 @@ body.redesign-v2::before{
 </div>
 <div class="facts reveal">
 <div class="fact">
-<span class="k">工作坊日期</span>
-<span class="v"><span class="en">8.14</span> <small>五 19:00–22:00</small>　<span class="en">8.15</span> <small>六 09:00–22:00</small>　<span class="en">8.16</span> <small>日 09:00–18:30</small></span>
+<span class="k">工作坊日期（2027年）</span>
+<span class="v"><span class="en">3.26</span> <small>五 19:00–22:00</small>　<span class="en">3.27</span> <small>六 09:00–22:00</small>　<span class="en">3.28</span> <small>日 09:00–18:30</small></span>
 </div>
 </div>
 <div class="facts reveal" style="margin-top:0;">
