@@ -2,7 +2,10 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
 <title>《用數學解人生題》動態腳本預覽</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -364,7 +367,7 @@ html,body{height:100%;background:#050505;color:var(--white);font-family:var(--sa
   <div id="subtitle"></div>
 
   <!-- 控制列 -->
-  <div id="hint">按空白鍵播放／暫停・按 H 隱藏控制列</div>
+  <div id="hint">空白鍵播放／暫停・H 隱藏控制列（觸控裝置雙擊畫面）</div>
   <div id="controls">
     <div id="progress"><div class="marks" id="marks"></div><div class="fill" id="fill"></div></div>
     <div id="cbar">
@@ -662,6 +665,19 @@ stageEl.addEventListener('mousemove',()=>{
   controls.classList.remove('hidden'); hint.classList.remove('hidden');
   clearTimeout(hideTimer);
   hideTimer=setTimeout(()=>{ if(playing){controls.classList.add('hidden');hint.classList.add('hidden');} },2200);
+});
+
+/* 觸控裝置（iPhone 等）：雙擊畫面切換控制列顯示／隱藏，因為沒有鍵盤 H 鍵可按 */
+let lastTap=0;
+stageEl.addEventListener('touchend',(e)=>{
+  const now=Date.now();
+  if(now-lastTap<350){
+    controlsHidden=!controlsHidden;
+    controls.classList.toggle('hidden',controlsHidden);
+    hint.classList.toggle('hidden',controlsHidden);
+    e.preventDefault();
+  }
+  lastTap=now;
 });
 
 /* 初始畫面 */
